@@ -1,7 +1,7 @@
 # Caesar Cipher Encryption and Decryption by Navaneetha Krishnan M
 
+![](https://github.com/CuteKitty0000/PRODIGY_CS_01/assets/144705877/2a3d2acf-dd89-4ac8-9ec2-f782d153332b)
 
-![cute-cat-with-ball-of-yarn-free-vector](https://github.com/CuteKitty0000/PRODIGY_CS_01/assets/144705877/3b80f199-f30c-44b9-8d0a-4a1512823a7d)
 
 ## Description
 
