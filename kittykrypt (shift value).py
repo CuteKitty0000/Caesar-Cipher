@@ -11,46 +11,49 @@ by https://github.com/CuteKitty0000
                                                                       
                                                                       ''')
 
-class CaesarCipher:
-    def __init__(self):
-        self.shift = None
+class CC:
+    def __init__(self, s=0):
+        self.s = s
 
-    def encrypt(self, text):
-        result = ""
-        for char in text:
-            if char.isalpha():
-                base = ord('A') if char.isupper() else ord('a')
-                result += chr((ord(char) - base + self.shift) % 26 + base)
+    def e(self, t):
+        r = ""
+        for c in t:
+            if c.isalpha():
+                b = ord('A') if c.isupper() else ord('a')
+                r += chr((ord(c) - b + self.s) % 26 + b)
             else:
-                result += char
-        return result
+                r += c
+        return r
 
-    def decrypt(self, text):
-        return self.encrypt(text)
+    def d(self, t):
+        r = ""
+        for c in t:
+            if c.isalpha():
+                b = ord('A') if c.isupper() else ord('a')
+                r += chr((ord(c) - b - self.s) % 26 + b)
+            else:
+                r += c
+        return r
 
 def main():
-    cipher = CaesarCipher()
-
-    choice = input("What you want to do encrypt or decrypt (e / d): ").lower()
-
-    if choice not in ['e', 'd']:
-        print("meow! Please type 'e' for 'encrypt' or 'd' for 'decrypt'.")
+    c = CC()
+    ch = input("e for encrypt, d for decrypt ( e / d ) : ").lower()
+    if ch not in ['e', 'd']:
+        print("Meow!, pls enter 'e' for encrypt, 'd' for decrypt")
         return
 
-    message = input("message to hide: ")
-
-    shift_str = input("Enter the shift value (an integer): ")
-    if not shift_str.isdigit():
-        print("Invalid shift value! Please enter an integer.")
+    m = input("msg to encrypt : ")
+    ss = input("shift: ")
+    if not ss.isdigit():
+        print("Meow!, shift must be an integer")
         return
-    shift = int(shift_str) % 26
+    s = int(ss) % 26
+    c.s = s
 
-    cipher.shift = shift
-
-    if choice == 'e':
-        print("Encrypted message:", cipher.encrypt(message))
+    if ch == 'e':
+        print("encrypted msg : ", c.e(m))
     else:
-        print("Decrypted message:", cipher.decrypt(message))
+        print("decrypted msg : ", c.d(m))
 
 if __name__ == "__main__":
     main()
